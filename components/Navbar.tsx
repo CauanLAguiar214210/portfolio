@@ -31,8 +31,8 @@ export default function Navbar() {
     >
       <div className="section-container flex items-center justify-between" style={{ height: 64 }}>
         {/* Logo */}
-        <a href="#" className="font-mono text-sm font-medium" style={{ color: "var(--text)" }}>
-          cauan.dev
+        <a href="#" className="font-mono text-lg font-medium" style={{ color: "var(--text)" }}>
+          Cauan DEV
         </a>
 
         {/* Desktop links */}

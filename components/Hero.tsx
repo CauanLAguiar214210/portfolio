@@ -2,6 +2,7 @@
 import { personalInfo } from "@/lib/data";
 import { Mail, MapPin, Phone, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // SVG icons for brands not in lucide
 const GithubIcon = () => (
@@ -21,127 +22,161 @@ export default function Hero() {
     <section id="sobre" className="relative pt-24 pb-20" style={{ borderBottom: "1px solid var(--border)", background: "linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%)" }}>
       <div className="section-container">
         <motion.div
-          className="max-w-3xl"
+          className="grid md:grid-cols-2 gap-12 items-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Available badge */}
+          {/* Left: Content */}
           <motion.div
-            className="badge-green mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-xl order-2 md:order-1"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <span className="dot-blink" />
-            Disponível para novas oportunidades
-          </motion.div>
-
-          {/* Heading */}
-          <motion.h1
-            className="font-bold tracking-tight mb-3 leading-tight"
-            style={{ fontSize: "clamp(2.4rem, 6vw, 4.2rem)", background: "linear-gradient(135deg, var(--accent), #60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.02em" }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {personalInfo.name}
-          </motion.h1>
-
-          <motion.p
-            className="font-medium mb-5"
-            style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", color: "var(--accent)" }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {personalInfo.role}
-          </motion.p>
-
-          <motion.p
-            className="leading-relaxed mb-8 max-w-2xl"
-            style={{ color: "var(--text2)", fontSize: "1.05rem", lineHeight: 1.75 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            {personalInfo.bio}
-          </motion.p>
-
-          {/* Info chips */}
-          <motion.div
-            className="flex flex-wrap gap-3 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            {[
-              { icon: <MapPin size={14} />, text: personalInfo.location },
-              { icon: <Phone size={14} />, text: personalInfo.phone },
-              { icon: <Mail size={14} />, text: personalInfo.email },
-            ].map((item) => (
-              <span
-                key={item.text}
-                className="flex items-center gap-1.5 text-sm"
-                style={{ color: "var(--muted)" }}
-              >
-                <span style={{ color: "var(--muted2)" }}>{item.icon}</span>
-                {item.text}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* CTA + Social */}
-          <motion.div
-            className="flex flex-wrap gap-3 items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            <a
-              href="#projetos"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
-              style={{ background: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)" }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "var(--accent-mid)"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "var(--accent)"}
+            {/* Available badge */}
+            <motion.div
+              className="badge-green mb-8 w-fit"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Ver projetos
-            </a>
-            <a
-              href="#contato"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25"
-              style={{ background: "var(--bg2)", color: "var(--text2)", border: "1px solid var(--border)", boxShadow: "0 0 20px rgba(0,0,0,0.1)" }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = "var(--border)";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = "var(--bg2)";
-              }}
-            >
-              Contato
-            </a>
+              <span className="dot-blink" />
+              Disponível para novas oportunidades
+            </motion.div>
 
-            <div className="flex gap-2 ml-1">
+            {/* Heading */}
+            <motion.h1
+              className="font-bold tracking-tight mb-4 leading-tight"
+              style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", background: "linear-gradient(135deg, var(--accent), #60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.02em" }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              {personalInfo.name}
+            </motion.h1>
+
+            <motion.p
+              className="font-medium mb-6"
+              style={{ fontSize: "1.25rem", color: "var(--accent)" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {personalInfo.role}
+            </motion.p>
+
+            <motion.p
+              className="leading-relaxed mb-8"
+              style={{ color: "var(--text2)", fontSize: "1.05rem", lineHeight: 1.7 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              {personalInfo.bio}
+            </motion.p>
+
+            {/* Info chips */}
+            <motion.div
+              className="flex flex-col gap-3 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              {[
+                { icon: <MapPin size={16} />, text: personalInfo.location },
+                { icon: <Phone size={16} />, text: personalInfo.phone },
+                { icon: <Mail size={16} />, text: personalInfo.email },
+              ].map((item) => (
+                <span
+                  key={item.text}
+                  className="flex items-center gap-2 text-sm"
+                  style={{ color: "var(--muted)" }}
+                >
+                  <span style={{ color: "var(--accent)" }}>{item.icon}</span>
+                  {item.text}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* CTA + Social */}
+            <motion.div
+              className="flex flex-wrap gap-4 items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
               <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                style={{ padding: "9px 13px" }}
-                title="GitHub"
+                href="#projetos"
+                className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                style={{ background: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)" }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "var(--accent-mid)"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "var(--accent)"}
               >
-                <GithubIcon />
+                Ver projetos
               </a>
               <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                style={{ padding: "9px 13px" }}
-                title="LinkedIn"
+                href="#contato"
+                className="px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25"
+                style={{ background: "var(--bg2)", color: "var(--text2)", border: "1px solid var(--border)", boxShadow: "0 0 20px rgba(0,0,0,0.1)" }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.background = "var(--border)";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.background = "var(--bg2)";
+                }}
               >
-                <LinkedinIcon />
+                Contato
               </a>
+
+              <div className="flex gap-2 ml-1">
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  style={{ padding: "9px 13px" }}
+                  title="GitHub"
+                >
+                  <GithubIcon />
+                </a>
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  style={{ padding: "9px 13px" }}
+                  title="LinkedIn"
+                >
+                  <LinkedinIcon />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right: Profile Image */}
+          <motion.div
+            className="flex justify-center md:justify-start order-1 md:order-2"
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div
+              className="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden"
+              style={{
+                background: "rgba(31, 31, 31, 0.8)",
+                backdropFilter: "blur(10px)",
+                border: "2px solid rgba(59, 130, 246, 0.4)",
+                boxShadow: "0 20px 60px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
+              }}
+            >
+              <Image
+                src="/image.jpg"
+                alt="Cauan Aguiar"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </motion.div>
         </motion.div>
