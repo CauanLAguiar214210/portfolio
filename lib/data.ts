@@ -64,7 +64,7 @@ export const experiences = [
 export const education = [
   {
     institution: "Estácio",
-    course: "CST em Engenharia de Software",
+    course: "Analise e Desenvolvimento de Sistemas (Bacharelado)",
     period: "2023 — 2026",
     icon: "degree",
   },
