@@ -99,7 +99,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs mb-0.5" style={{ color: "var(--muted2)" }}>LinkedIn</p>
-                <p className="text-sm font-medium" style={{ color: "var(--text)" }}>cauan-aguiar-a96280313</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text)" }}>{personalInfo.linkedinUser}</p>
               </div>
             </a>
 
@@ -124,7 +124,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs mb-0.5" style={{ color: "var(--muted2)" }}>GitHub</p>
-                <p className="text-sm font-medium" style={{ color: "var(--text)" }}>CauanLaguiar214210</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text)" }}>{personalInfo.githubUser}</p>
               </div>
             </a>
 

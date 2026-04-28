@@ -4,7 +4,7 @@ import { Providers } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Cauan Aguiar | Desenvolvedor .NET",
-  description: "Portfolio de Cauan Aguiar — Desenvolvedor .NET com experiência em C#, ASP.NET Core, WebForms e SQL Server. Rio de Janeiro, RJ.",
+  description: "Portfolio de Cauan Aguiar — Desenvolvedor .NET com experiência em C#, ASP.NET Core, WebForms, SQL Server, migração de legados e IA aplicada ao desenvolvimento.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
